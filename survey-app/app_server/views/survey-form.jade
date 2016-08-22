@@ -1,0 +1,100 @@
+extends layout
+
+block content
+  .row.page-header
+    .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12.col-md-6
+      form.form-horizontal(action="/survey", method="post", role="form")
+
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="name") Name
+          .col-xs-12.col-sm-10
+            input#name.form-control(name="name")
+
+        .form-group
+          label.col-xs-10.col-sm-2.control-label(for="rating") Rating
+          .col-xs-12.col-sm-2
+            select#rating.form-control.input-sm(name="rating")
+              option 5
+              option 4
+              option 3
+              option 2
+              option 1
+
+        .form-group
+          label.col-sm-2.control-label Experience
+          .col-sm-10
+            .panel.panel-default
+              .panel-body(style="padding-top: 5px;")
+                .radio
+                  label  
+                    input#exp-great(name="experience-options", type="radio", value="great")
+                    | A lot of great stuff here. I definitely want more!
+                .radio
+                  label  
+                    input#exp-good(name="experience-options", type="radio", value="good")
+                    | Seems exciting, but I'll hold off further exploration for a little while.
+                .radio
+                  label  
+                    input#exp-great(name="experience-options", type="radio", value="average")
+                    | Interesting content. Too bad I'm buried in client work unrelated to this.
+                .radio
+                  label  
+                    input#exp-ok(name="experience-options", type="radio", value="ok")
+                    | The presentation was alright, but I have no interest in the content
+                .radio
+                  label  
+                    input#exp-bad(name="experience-options", type="radio", value="bad")
+                    | Renner, you just destroyed an hour of my time! I'd rather watch Sanchez fumble.
+
+        .form-group
+          label.col-sm-2.control-label Technology Interests
+          .col-sm-10
+            .panel.panel-default
+              .panel-body(style="padding-top: 5px;")
+                label.checkbox-inline  
+                  input#tech-node(name="tech-node", type="checkbox")
+                  | Node.js &nbsp;
+                label.checkbox-inline  
+                  input#tech-npm(name="tech-npm", type="checkbox")
+                  | NPM &nbsp;
+                label.checkbox-inline  
+                  input#tech-express(name="tech-express", type="checkbox")
+                  | Express &nbsp;
+                label.checkbox-inline  
+                  input#tech-seneca(name="tech-seneca", type="checkbox")
+                  | Seneca &nbsp;
+                label.checkbox-inline  
+                  input#tech-mongo(name="tech-mongo", type="checkbox")
+                  | MongoDB &nbsp;
+                label.checkbox-inline  
+                  input#tech-azure-apps(name="tech-azure-apps", type="checkbox")
+                  | Azure App Services &nbsp;
+                label.checkbox-inline  
+                  input#tech-asp-net-core(name="tech-asp-net-core", type="checkbox")
+                  | ASP.NET Core &nbsp;
+                label.checkbox-inline  
+                  input#tech-azure-storage(name="tech-azure-storage", type="checkbox")
+                  | Azure Storage &nbsp;
+                label.checkbox-inline  
+                  input#tech-documentdb(name="tech-documentdb", type="checkbox")
+                  | DocumentDB &nbsp;
+                label.checkbox-inline  
+                  input#tech-webhooks(name="tech-webhooks", type="checkbox")
+                  | Webhooks &nbsp;
+                label.checkbox-inline  
+                  input#tech-git(name="tech-git", type="checkbox")
+                  | Git &nbsp;
+                label.checkbox-inline  
+                  input#tech-asp-net-api(name="tech-asp-net-api", type="checkbox")
+                  | ASP.NET Web API &nbsp;
+              
+        .form-group
+          label.col-sm-2.control-label(for="feedback") Additional Feedback (optional)
+          .col-sm-10
+            textarea#feedback.form-control(name="feedback", rows="5")
+
+        button.btn.btn-default.pull-right Submit Survey
+    .col-xs-12.col-md-4
