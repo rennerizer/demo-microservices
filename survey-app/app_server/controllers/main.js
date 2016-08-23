@@ -32,7 +32,7 @@ module.exports.submit = function(req, res) {
 
     res.render('thank-you', {
         title: 'Thank You!',
-        content: 'You\'re feedback is appreciated.'
+        content: 'Your feedback is appreciated.'
     });
     // }});
 };
