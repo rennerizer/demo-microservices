@@ -1,0 +1,7 @@
+{
+  "name": "survey-data-ms",
+  "version": "0.0.1",
+  "dependencies": {
+    "seneca": "~1.0.0"
+  }
+}

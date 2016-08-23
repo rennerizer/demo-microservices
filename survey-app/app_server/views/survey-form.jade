@@ -6,17 +6,12 @@ block content
       h1= pageHeader.title
   .row
     .col-xs-12.col-md-6
-      form.form-horizontal(action="/survey", method="post", role="form")
+      form.form-horizontal(action="", method="post", role="form")
 
         .form-group
-          label.col-xs-10.col-sm-2.control-label(for="name") Name
-          .col-xs-12.col-sm-10
-            input#name.form-control(name="name")
-
-        .form-group
-          label.col-xs-10.col-sm-2.control-label(for="rating") Rating
+          label.col-xs-10.col-sm-2.control-label(for="rating") Overall Rating
           .col-xs-12.col-sm-2
-            select#rating.form-control.input-sm(name="rating")
+            select#rating.form-control.input-sm(name="rating", style="margin-top: 15px;")
               option 5
               option 4
               option 3
@@ -24,7 +19,7 @@ block content
               option 1
 
         .form-group
-          label.col-sm-2.control-label Experience
+          label.col-sm-2.control-label Today's Experience
           .col-sm-10
             .panel.panel-default
               .panel-body(style="padding-top: 5px;")
@@ -54,6 +49,8 @@ block content
           .col-sm-10
             .panel.panel-default
               .panel-body(style="padding-top: 5px;")
+                label
+                  &nbsp;&nbsp;&nbsp;
                 label.checkbox-inline  
                   input#tech-node(name="tech-node", type="checkbox")
                   | Node.js &nbsp;
