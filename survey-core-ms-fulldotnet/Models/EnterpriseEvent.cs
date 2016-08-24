@@ -14,7 +14,7 @@ namespace survey_core_ms_fulldotnet.Models
 
     public class EventInfo
     {
-        public Guid eventid { get; set; }
+        public string eventid { get; set; }
         public string eventtype { get; set; }
         public string entitytype { get; set; }
         public string entityid { get; set; }

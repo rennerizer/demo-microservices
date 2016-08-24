@@ -2,6 +2,7 @@ var seneca = require("seneca")();
 
 seneca.client({host: "url.rennerizer.com", port: 80, pin: {role: "survey-urls"}});
 seneca.client({host: "data.rennerizer.com", port: 80, pin: {role: "survey-data"}});
+seneca.client({host: "core.rennerizer.com", port: 80, pin: {role: "survey-event"}});
 
 /* GET 'home' page */
 module.exports.survey = function(req, res) {
@@ -26,7 +27,20 @@ module.exports.submit = function(req, res) {
 
     var survey = req.body;
 
+    // Save the survey
     seneca.act({role: "survey-data", cmd: "save", survey, function (err, result) {
+        // TODO: handle errors
+    }});
+
+    // Create survey creation event
+    var surveyevent = {
+        "role" : "survey-event",
+        "cmd" : "fire",
+        "eventinfo" : "event details" // TODO include eventid and mongo generated id
+    }
+    
+    // Fire the event
+    seneca.act({role: "survey-event", cmd: "fire", surveyevent, function (err, result) {
         // TODO: handle errors
     }});
 
@@ -34,5 +48,4 @@ module.exports.submit = function(req, res) {
         title: 'Thank You!',
         content: 'Your feedback is appreciated.'
     });
-    // }});
 };
